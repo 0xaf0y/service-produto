@@ -4,22 +4,21 @@ import com.PocMicroservices.serviceproduto.Controller.Data.Request.ProdutoPersis
 import com.PocMicroservices.serviceproduto.Controller.Data.Response.ProdutoResponseDto;
 import com.PocMicroservices.serviceproduto.Model.Produto;
 import com.PocMicroservices.serviceproduto.Service.ProdutoService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("produto")
 public class ProdutoController {
 
-     private final ProdutoService produtoService;
+    private final ProdutoService produtoService;
 
     public ProdutoController(ProdutoService produtoService) {
         this.produtoService = produtoService;
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public ProdutoResponseDto inserir(@RequestBody ProdutoPersistDto dto){
         Produto produto = new Produto(dto.getDescricao(), dto.getValor());
         Produto produtoPersistido = produtoService.inserir(produto);
