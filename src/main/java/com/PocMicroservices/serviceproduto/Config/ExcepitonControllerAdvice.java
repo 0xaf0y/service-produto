@@ -1,6 +1,7 @@
 package com.PocMicroservices.serviceproduto.Config;
 
 import com.PocMicroservices.serviceproduto.Controller.Data.Response.Error;
+import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class ExcepitonControllerAdvice {
 
+    @Hidden
     @ResponseBody
     @ExceptionHandler(NoResultException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)

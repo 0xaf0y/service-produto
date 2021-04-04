@@ -13,29 +13,26 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("produto")
-public class ProdutoController {
-
-    private ModelMapper modelMapper;
+public class ProdutoController implements IProdutoController{
 
     private final ProdutoService produtoService;
 
-    public ProdutoController(ModelMapper modelMapper, ProdutoService produtoService) {
-        this.modelMapper = modelMapper;
+    public ProdutoController(ProdutoService produtoService) {
         this.produtoService = produtoService;
     }
 
+    @Override
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public ProdutoResponseDto inserir(@Valid @RequestBody ProdutoPersistDto dto){
+    public Produto inserir(@Valid @RequestBody ProdutoPersistDto dto){
         Produto produto = new Produto(dto.getDescricao(), dto.getValor());
-        Produto produtoPersistido = produtoService.inserir(produto);
-        return modelMapper.map(produtoPersistido, ProdutoResponseDto.class);
+        return produtoService.inserir(produto);
     }
 
+    @Override
     @GetMapping("{id}")
-    public ProdutoResponseDto one (@PathVariable("id") Long id){
-        var produto = produtoService.one(id);
-        return modelMapper.map(produto, ProdutoResponseDto.class);
+    public Produto one (@PathVariable("id") Long id){
+        return produtoService.one(id);
     }
 
 }
