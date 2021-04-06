@@ -1,12 +1,12 @@
 package com.PocMicroservices.serviceproduto.Controller.Data.Response;
 
-public class ProdutoResponseDto {
+public class ProdutoResponse {
 
     private Long id;
     private String descricao;
 
     @Deprecated
-    public ProdutoResponseDto() {
+    public ProdutoResponse() {
     }
 
     public Long getId() {

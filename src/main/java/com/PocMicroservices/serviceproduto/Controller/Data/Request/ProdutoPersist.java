@@ -4,7 +4,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-public class ProdutoPersistDto {
+public class ProdutoPersist {
 
     @NotEmpty
     private String descricao;

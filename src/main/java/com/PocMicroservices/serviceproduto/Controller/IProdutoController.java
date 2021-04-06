@@ -1,7 +1,6 @@
 package com.PocMicroservices.serviceproduto.Controller;
 
-import com.PocMicroservices.serviceproduto.Controller.Data.Request.ProdutoPersistDto;
-import com.PocMicroservices.serviceproduto.Controller.Data.Response.ProdutoResponseDto;
+import com.PocMicroservices.serviceproduto.Controller.Data.Request.ProdutoPersist;
 import com.PocMicroservices.serviceproduto.Model.Produto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -34,7 +33,7 @@ public interface IProdutoController {
     )
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    Produto inserir(@Valid @RequestBody ProdutoPersistDto dto);
+    Produto inserir(@Valid @RequestBody ProdutoPersist dto);
 
 
     @GetMapping("{id}")

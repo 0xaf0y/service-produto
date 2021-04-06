@@ -1,11 +1,8 @@
 package com.PocMicroservices.serviceproduto.Controller;
 
-import com.PocMicroservices.serviceproduto.Controller.Data.Request.ProdutoPersistDto;
-import com.PocMicroservices.serviceproduto.Controller.Data.Response.ProdutoResponseDto;
+import com.PocMicroservices.serviceproduto.Controller.Data.Request.ProdutoPersist;
 import com.PocMicroservices.serviceproduto.Model.Produto;
 import com.PocMicroservices.serviceproduto.Service.ProdutoService;
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +21,7 @@ public class ProdutoController implements IProdutoController{
     @Override
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Produto inserir(@Valid @RequestBody ProdutoPersistDto dto){
+    public Produto inserir(@Valid @RequestBody ProdutoPersist dto){
         Produto produto = new Produto(dto.getDescricao(), dto.getValor());
         return produtoService.inserir(produto);
     }

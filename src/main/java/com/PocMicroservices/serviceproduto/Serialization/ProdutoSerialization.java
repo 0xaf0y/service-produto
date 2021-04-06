@@ -1,6 +1,6 @@
 package com.PocMicroservices.serviceproduto.Serialization;
 
-import com.PocMicroservices.serviceproduto.Controller.Data.Response.ProdutoResponseDto;
+import com.PocMicroservices.serviceproduto.Controller.Data.Response.ProdutoResponse;
 import com.PocMicroservices.serviceproduto.Model.Produto;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
@@ -22,7 +22,7 @@ public class ProdutoSerialization extends JsonSerializer<Produto> {
 
     @Override
     public void serialize(Produto produto, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
-       ProdutoResponseDto produtoResponseDto = modelMapper.map(produto, ProdutoResponseDto.class);
-       jsonGenerator.writeObject(produtoResponseDto);
+       ProdutoResponse produtoResponse = modelMapper.map(produto, ProdutoResponse.class);
+       jsonGenerator.writeObject(produtoResponse);
     }
 }
