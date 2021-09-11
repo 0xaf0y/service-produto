@@ -1,9 +1,12 @@
 package com.PocMicroservices.serviceproduto.Controller.Data.Response;
 
+import javax.validation.constraints.NotNull;
+
 public class ProdutoResponse {
 
     private Long id;
     private String descricao;
+    private Long valor;
 
     @Deprecated
     public ProdutoResponse() {

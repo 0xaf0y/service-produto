@@ -26,3 +26,4 @@ public class ProdutoSerialization extends JsonSerializer<Produto> {
        jsonGenerator.writeObject(produtoResponse);
     }
 }
+

@@ -12,7 +12,6 @@ public class ProdutoPersist {
     @NotNull
     private BigDecimal valor;
 
-
     public String getDescricao() {
         return descricao;
     }
@@ -20,6 +19,7 @@ public class ProdutoPersist {
     public BigDecimal getValor() {
         return valor;
     }
+
 
 
 }
